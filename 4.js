@@ -21,13 +21,13 @@ var serialize = function (root) {
   let stack = [root];
   let res = [];
 
-  // Simple for-loop. We pop from the end of the stack.
+  // Pop from the end of the stack.
   for (let i = 0; stack.length > 0; i++) {
     let node = stack.pop();
 
     if (node !== null) {
       res.push(node.val);
-      // TRICK: Push RIGHT first, so LEFT gets popped out first!
+      // push RIGHT first, so LEFT gets popped out first
       stack.push(node.right);
       stack.push(node.left);
     } else {
